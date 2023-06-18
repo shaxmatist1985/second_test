@@ -1,9 +1,12 @@
 from django.http import HttpResponse, Http404, HttpResponseNotFound
 from django.shortcuts import render, redirect
 
-
+menu =['About site', 'Add page', 'contact', 'login']
 def index(request):
-    return HttpResponse('<h1>main page</h>')
+    return render(request, 'half/index.html', {'menu': menu, 'title': 'main page'})
+
+def about(request):
+    return render(request, 'half/about.html', {'menu': menu, 'title': 'about site'})
 
 def categories(request, catid):
     if request.POST:
